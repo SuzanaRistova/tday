@@ -1,6 +1,6 @@
 <?php
 session_start();
-$id = $_SESSION['myusername'];
+$id = $_SESSION['id'];
 $mysql_hostname = "localhost";
 $mysql_user = "root";
 $mysql_password = "";
