@@ -46,15 +46,34 @@ if(isset($_POST['submit']) ) {
 }else{
 
 $form = <<<EOT
-<form action= "register.php" method="POST">
+<form action= "register.php" method="POST" >
+<table border="1" height="500" width="500" align="center">
+<tr> <td align="center">
 First Name: <input type="text" name="name" /><br/>
+</td> </tr>
+<tr> <td align="center">
 Last Name: <input type="text" name="lname" /><br/>
+</td> </tr>
+<tr> <td align="center">
 Username: <input type="text" name="uname" /><br/>
+</td> </tr>
+<tr> <td align="center">
 Email: <input type="text" name="email1" /><br/>
+</td> </tr>
+<tr> <td align="center">
 Confirm Email: <input type="text" name="email2" /><br/>
+</td> </tr>
+<tr> <td align="center">
 Password: <input type="password" name="pass1" /><br/>
+</td> </tr>
+<tr> <td align="center">
 Confirm Password: <input type="password" name="pass2" /><br/>
+</td></tr>
+<tr> <td align="center">
 <input type="submit" value="Register" name="submit"/>
+<input type="reset" value="Reset" name="reset"/>
+</td> </tr>
+
 </form>
 EOT;
 
