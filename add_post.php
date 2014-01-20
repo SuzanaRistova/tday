@@ -1,51 +1,26 @@
 <?php
-session_start();
-$mysql_hostname = "localhost";
-$mysql_user = "root";
-$mysql_password = "";
-$mysql_database = "tday";
-$prefix = "";
-$tbl_name="post"; // Table name 
+    //Tuka ima session_start() i se so treba za da se povrzes so bazata.
+    require 'config.php';
+    
+//    var_dump($_SESSION);
+//    exit();
+    
+    if (isset($_SESSION)) {
+        $users_id = $_SESSION['users_id'];//Id-to na usero e staveno u sesija koa se najavuva
 
-// Connect to server and select database.
-$bd = mysql_connect($mysql_hostname, $mysql_user, $mysql_password) or die("Could not connect database");
-mysql_select_db($mysql_database, $bd) or die("Could not select database");
- //if(isset($_GET['id']))
-    {
-        $users_id = $_GET['id'];
-      
-        $query1 = "SELECT * FROM users WHERE id='$usres_id' ";
-       $result1=mysql_query($query1);
-        $red1 = mysql_fetch_array($result1);
-		$naslov=$_POST['naslov'];
-		$sodrzina=$_POST['sodrzina'];
-		if($result1){
-		echo "Successful<BR>";
-echo "<a href=pregled_post.php>View your topic</a>";
-}
-else {
-echo "ERROR";
-}
-        $query2 = "INSERT INTO post (id, naslov,sodrzina, users_id) VALUES (NULL, '$naslov', '$sodrzina', '$users_id')";
-        $result2 = mysql_query($query2);
-		if($result2){
-		
-	
-echo "Successful<BR>";
-echo "<a href=pregled_post.php>View your topic</a>";
-}
-else {
-echo "ERROR";
-}
-mysql_close();
-    
-     
-    
-    
-}
-
+        $naslov = $_POST['naslov'];
+        $sodrzina = $_POST['sodrzina'];
+        $query1 = "INSERT INTO post (id, naslov,sodrzina, users_id) VALUES (NULL, '$naslov', '$sodrzina', '$users_id')";
+        $result1 = mysql_query($query1);
+                
+        if ($result1) {
+            echo "Successful<BR>";
+            echo "<a href=pregled_post.php>View your topic</a>";
+        } else {
+            echo "ERROR";
+        }
+    }
 ?>
 
 
 
- 

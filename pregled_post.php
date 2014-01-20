@@ -1,13 +1,5 @@
 <?php
-$hostname='localhost';
-$username='root';
-$password='';
-$dbname='tday';
-
-//Nice output if an error occurs during the interaction with the DBMS
-function dberror() {  
-	die("DB Error " . mysql_errno() . " : " . mysql_error());
-}
+require 'config.php';
 
 function mysqlclean($input, $maxlength, $connection){
 	$input = substr($input, 0, $maxlength);
